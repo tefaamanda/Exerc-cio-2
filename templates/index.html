@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Procura do menor e maior valor e da média de 10 valores inteiros.</title> <!--Define o nome da página-->
+</head>
+<body>
+    <h1> Verifica o menor e maior valor, e a média de 10 valores inteiros</h1> <!--Define o título-->
+    <form action="/resultado" method="post"> <!--Define o resultado e método-->
+        {% for qtd in range (10): %} <!--Define quantidade de número a inserir (10)-->
+            <label for="numero{{qtd}}">Digite um número {{qtd}}:</label> <!-- Rótulo do campo de entrada -->
+            <input type="number" id="numero{{qtd}}" name="numero{{qtd}}" required> <!-- Campo de entrada para o número -->
+        </br></br></br>
+        {% endfor %} <!--Termina o 'for'-->
+        <button type="submit">Verificar</button> <!--Configura botão-->
+        <div id="resultado">
+            {% if maior != '' and menor != '' and media != '' %} <!--Define resultado-->
+                <p>Maior: {{maior }}</p> <!--Imprime 'maior'-->
+                <p>Menor: {{menor }}</p> <!--Imprime 'menor'-->
+                <p>Média: {{media }}</p> <!--Imprime 'média'-->
+            {% endif %}
+        </div>
+    </form>
+</body>
+</html>
